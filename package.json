@@ -1,0 +1,17 @@
+{
+  "name": "error-note",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs",
+    "test": "node --test",
+    "check": "node --check public/app.js && node --check api/analyze.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "ai": "^7.0.150"
+  }
+}

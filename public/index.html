@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f7f9"><title>에러노트 · 에러를 설명하는 가장 빠른 방법</title><meta name="description" content="복잡한 에러 로그를 팀원이 이해할 수 있는 질문으로. 민감정보를 가리고 공유용 개발 이슈 카드를 만드세요."><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%234f46e5'/%3E%3Ctext x='14' y='45' font-size='40' fill='white'%3E!%3C/text%3E%3C/svg%3E"><link rel="stylesheet" href="/style.css"><script type="module" src="/app.js"></script></head>
+<body>
+<header><a class="brand" href="/" aria-label="에러노트 홈"><span class="logo">[ ! ]</span> 에러노트<span class="beta">BETA</span></a><span class="header-note">막힌 순간을, 다음 단계로.</span></header>
+<main>
+<section class="hero"><span class="eyebrow"><span class="dot"></span> DEVELOPERS, MEET YOUR NEXT STEP</span><h1>에러는 복잡해도,<br>질문은 <span>명확하게.</span></h1><p>로그를 붙여 넣으면 팀원이 이해할 수 있는 이슈 카드로.<br>상황을 정리하고, 더 빠르게 다음 단계로 나아가세요.</p><div class="hero-tags"><span>↗ 가입 없이 바로</span><span>⌘ Markdown 복사</span><span>◈ 브라우저에서 정리</span></div></section>
+<section class="workspace" aria-label="에러 카드 만들기">
+<form id="editor" class="panel input-panel"><div class="panel-heading"><div><span class="step">01</span><h2>어디에서 막혔나요?</h2></div><button class="text-button" type="button" id="sample">예시 불러오기 ↗</button></div>
+<label for="context">발생 상황 <span class="optional">선택</span></label><input id="context" maxlength="1000" placeholder="예: 배포 후 로그인 버튼을 누르면 오류가 발생해요">
+<div class="field-row"><label for="stack">개발 환경 <span class="optional">선택</span></label></div><input id="stack" maxlength="300" placeholder="예: Next.js · TypeScript · Vercel">
+<div class="field-row"><label for="log">에러 로그 <span class="required">*</span></label><span id="counter">0 / 20,000</span></div><textarea id="log" spellcheck="false" maxlength="20000" required placeholder="TypeError: Cannot read properties of undefined\n    at getUser (src/lib/user.ts:24:18)\n\n여기에 에러 메시지와 스택 트레이스를 붙여 넣으세요."></textarea>
+<div class="privacy"><span>◈</span><div><strong>공유 전에 민감정보를 가려요</strong><p>이메일·토큰 등 알려진 패턴을 가립니다. 누락될 수 있으니 결과를 확인해 주세요.</p></div><input type="checkbox" id="mask" checked aria-label="민감정보 자동 가리기"></div>
+<label class="ai-option"><input type="checkbox" id="ai"> AI로 원인 후보도 분석 <span id="ai-status">연결 확인 중</span></label><p class="ai-notice" id="ai-notice">AI를 선택하면 가려진 로그와 입력한 상황·환경이 외부 AI로 전달됩니다.</p>
+<button class="primary" type="submit" id="generate">이슈 카드 만들기 <span>→</span></button><p id="form-status" class="form-status" role="status" aria-live="polite">입력 내용은 자동 저장되지 않습니다.</p></form>
+<section class="panel output-panel" aria-labelledby="output-title"><div class="panel-heading"><div><span class="step">02</span><h2 id="output-title">공유할 준비, 끝.</h2></div><span id="result-badge" class="result-badge">PREVIEW</span></div>
+<div id="empty"><div class="empty-art"><span class="code-icon">&lt;/&gt;</span><div class="art-line long"></div><div class="art-line"></div><div class="art-line short"></div><span class="art-check">✓</span></div><h3>좋은 질문이 해결의 시작이니까.</h3><p>왼쪽에 로그를 넣어보세요.<br>문제 요약부터 확인 순서까지 깔끔하게 정리해 드려요.</p><div class="empty-list"><span>01 &nbsp; 문제와 발생 상황</span><span>02 &nbsp; 원인 후보와 확인 순서</span><span>03 &nbsp; 바로 공유할 질문 문구</span></div></div>
+<div id="result" hidden><div class="result-meta"><span id="result-type"></span><span id="mask-count"></span></div><pre id="result-text"></pre><div class="result-actions"><button type="button" class="primary" id="copy">Markdown 복사 <span>↗</span></button><button type="button" class="secondary" id="download">.md 저장 ↓</button></div><p id="copy-status" role="status" aria-live="polite"></p></div>
+</section></section>
+<section class="bottom-note"><div><span>01 / PASTE</span><p>막힌 상황 그대로 붙여 넣고</p></div><div><span>02 / ORGANIZE</span><p>민감정보를 가리고 맥락을 정리해</p></div><div><span>03 / SHARE</span><p>팀 채팅과 이슈에 바로 공유하세요</p></div></section>
+</main><footer><span class="brand-small">[ ! ] 에러노트</span><span>더 나은 질문. 더 빠른 해결.</span><button type="button" class="text-button" id="reset">입력 초기화</button></footer>
+</body></html>
