@@ -5,7 +5,7 @@ export function redact(value) {
     .replace(/\bBearer\s+[^\s"'<>]+/gi, () => `Bearer ${hide()}`)
     .replace(/\b(?:sk-[a-zA-Z0-9_-]{12,}|gh[pousr]_[a-zA-Z0-9_]{12,}|github_pat_[a-zA-Z0-9_]+|AKIA[A-Z0-9]{16})\b/g, hide)
     .replace(/\beyJ[a-zA-Z0-9_-]+\.[a-zA-Z0-9_-]+\.[a-zA-Z0-9_-]+\b/g, hide)
-    .replace(/\b(password|passwd|pwd|api[_-]?key|access[_-]?token|refresh[_-]?token|secret|authorization|cookie|set-cookie)\b(["']?\s*[:=]\s*)("[^"]*"|'[^']*'|[^\r\n,;&]+)/gi, (_, key, separator) => `${key}${separator}${hide()}`)
+    .replace(/\b(password|passwd|pwd|api[_-]?key|access[_-]?token|refresh[_-]?token|secret|authorization|cookie|set-cookie)\b(["']?\s*[:=]\s*)("[^"]*"|'[^']*'|[^\r\n,;&]+)/gi, (_, key, separator, value) => `${key}${separator}${value.includes('[REDACTED]') ? '[REDACTED]' : hide()}`)
     .replace(/(https?:\/\/)[^\s/@]+:[^\s/@]+@/gi, (_, scheme) => `${scheme}${hide()}@`)
     .replace(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/gi, hide)
     .replace(/\b01[016789][- ]?\d{3,4}[- ]?\d{4}\b/g, hide);
